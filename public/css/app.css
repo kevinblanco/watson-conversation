@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
   font-family: "Proxima Nova", Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -45,6 +45,7 @@ div {
 
 #contentParent {
   height: 100%;
+  position: relative;
 }
 
 .responsive-columns-wrapper {
@@ -60,7 +61,6 @@ div {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  overflow: auto;
 }
 
 #chat-column-holder {
@@ -68,15 +68,17 @@ div {
 }
 
 .chat-column {
-  height: 60%;
+  height: 100%;
   padding: 0.9375rem 0 0.625rem 0;
-  margin: auto;
   text-align: left;
   max-width: 32rem;
+  max-height: 865px;
   min-width: 9.375rem;
   padding-top: 9rem;
   background: transparent url('../img/device.png') no-repeat center top;
   margin-top: 1rem;
+  float: right;
+  margin-right: 4rem;
 }
 
 #scrollingChat {
@@ -273,11 +275,6 @@ html{
   font-size: 16px;
 }
 
-@media only screen and (max-width: 1000px) {
-  html {
-    font-size: 15px;
-  }
-}
 
 @media only screen and (max-width: 600px) {
   html {
@@ -299,6 +296,78 @@ html{
 /* 
 * New styles added by Kevin Blanco, some small modifications made on existing ones 
 */
+
+.welcome-banner {
+  color: white;
+  background: #48c2fe; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #48c2fe 0%, #009ec3 100%, #2bb6f9 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #48c2fe 0%,#009ec3 100%,#2bb6f9 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #48c2fe 0%,#009ec3 100%,#2bb6f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48c2fe', endColorstr='#2bb6f9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.welcome-banner .container{
+  max-width: 1080px; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.welcome-banner .welcome__header h4{
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+.welcome-banner .welcome__header h4 span{
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.welcome-banner .welcome__headline {
+    text-align: center;
+}
+
+.welcome-banner .welcome__headline h1{
+    font-size: 4rem;
+    font-weight: 500;
+    margin-top: 12%;
+    margin-bottom: 2rem;
+    line-height: 3rem;
+}
+
+.welcome-banner .welcome__headline h3{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.welcome-banner .welcome__headline a{
+    background: white;
+    border: none;
+    color: #009ec3;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 14px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+.welcome-banner .welcome__bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
 
 .segments {
   clear: both;
@@ -377,4 +446,64 @@ html{
   font-weight: 600;
   color: #545454;
   padding: 0 1.25rem;
+}
+
+.context-column{
+  float: left;
+  height: 100%;
+  padding: 0.9375rem 0 0.625rem 0;
+  text-align: left;
+  max-width: 32rem;
+  min-width: 9.375rem;
+  margin-top: 2rem;
+  margin-left: 6rem;
+  color: #444444;
+}
+
+.context-column h2 {
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+}
+
+.context-column .line {
+  width: 2.61111em;
+  height: 0.22222em;
+  background-color: #444444;
+  margin-bottom: 2.22222em;
+}
+
+.context-column p{
+    line-height: 2.1;
+    letter-spacing: 0.4px;
+    font-size: 1.3rem;
+}
+
+.wow { 
+  visibility: hidden; 
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 15px;
+  }
+
+  .chat-column {
+    height: 99%;
+    padding: 0.9375rem 0 0.625rem 0;
+    text-align: left;
+    margin: 1rem auto 1rem auto;
+    max-width: 32rem;
+    max-height: 865px;
+    min-width: 9.375rem;
+    padding-top: 9rem;
+    background: none;
+    float: none;
+    border: 2px solid gainsboro;
+  }
+
+  .context-column{
+    display: none;
+  }
+
 }
